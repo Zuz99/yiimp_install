@@ -31,10 +31,10 @@ clear
     githubrepoAfinielTech=https://github.com/Afiniel-tech/yiimp.git
     githubrepoAfiniel=https://github.com/afiniel/yiimp.git
     githubrepoSabiasQue=https://github.com/SabiasQueSpace/yiimp.git
-    githubrepoTpfuemp=https://github.com/tpfuemp/yiimp.git
+    githubrepoTpfuemp=https://github.com/tpfuemp/yiimpmod.git
 
     # Custom / project repo
-    githubrepoZuz99=https://github.com/Zuz99/yiimp.git
+    githubrepoZuz99=https://github.com/Zuz99/yiimpmod.git
 
     
     #githubstratum=https://github.com/vaudois/stratum.git
@@ -934,7 +934,7 @@ clear
                 sudo mysql -u root -p"${rootpasswd}" yiimpfrontend --force < "$BASE_DUMP_SQL"
             else
                 # Fallback: newest .sql.gz or .sql if no *complete_export* naming exists
-                ANY_GZ="$(ls -1 "${SQL_DIR}"/*.sql.gz 2>/dev/null | sort | tail -n 1)"
+                #ANY_GZ="$(ls -1 "${SQL_DIR}"/*.sql.gz 2>/dev/null | sort | tail -n 1)"
                 ANY_SQL="$(ls -1 "${SQL_DIR}"/*.sql    2>/dev/null | sort | tail -n 1)"
 
                 if [[ -n "$ANY_GZ" ]]; then
