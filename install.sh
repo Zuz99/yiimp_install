@@ -1,15 +1,16 @@
 #!/bin/bash
 #################################################################################
 # Author: Vaudois
+# Forked: Zuz99
 #
 # Program:
-#   Install yiimp on Ubuntu 20.04 & 22.04 running Nginx, MariaDB, and PHP 8.2/8.3
-#   v2.3.8 beta(for test)
-#   Modified for include ARM compatibility
+#   Install yiimp on Ubuntu 22.04 running Nginx, MariaDB, and PHP 8.2
+#   v0.1
+#   
 #################################################################################
 
 if [ -z "${TAG}" ]; then
-    TAG=v2.3.8
+    TAG=v0.1
 fi
 
 NPROC=$(nproc)
@@ -41,10 +42,10 @@ clear
 
     echo "Starting installer..."
     
-    BTCDEP="bc1qt8g9l6agk7qrzlztzuz7quwhgr3zlu4gc5qcuk"
-    LTCDEP="MGyth7od68xVqYnRdHQYes22fZW2b6h3aj"
-    ETHDEP="0xc4e42e92ef8a196eef7cc49456c786a41d7daa01"
-    BCHDEP="bitcoincash:qp9ltentq3rdcwlhxtn8cc2rr49ft5zwdv7k7e04df"
+    BTCDEP=""
+    LTCDEP=""
+    ETHDEP=""
+    BCHDEP=""
 
     nameofinstall=yiimp_install
     daemonname=coinbuild
@@ -923,7 +924,7 @@ clear
             log_message "ERROR: SQL folder not found: $SQL_DIR"
         else
             # Base dump: prefer complete export if present (supports .sql.gz and .sql)
-            BASE_DUMP_GZ="$(ls -1 "${SQL_DIR}"/*complete_export*.sql.gz 2>/dev/null | sort | tail -n 1)"
+            BASE_DUMP_GZ="$(ls -1 "${SQL_DIR}"/*.sql.gz 2>/dev/null | sort | tail -n 1)"
             BASE_DUMP_SQL="$(ls -1 "${SQL_DIR}"/*.sql    2>/dev/null | sort | tail -n 1)"
 
             if [[ -n "$BASE_DUMP_GZ" ]]; then
